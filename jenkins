@@ -1,0 +1,75 @@
+@Library("shared") _
+ 
+pipeline {
+
+    agent any
+ 
+    stages {
+
+        stage('hello') {
+
+            steps {
+
+                script{
+
+                    hello()
+
+                }
+
+            }
+
+        } 
+
+        stage('code') {
+
+            steps {
+
+                script{
+
+               code("https://github.com/sachinbhirud1998/htmlfile.git","main")
+
+              }
+
+            }
+
+        }
+
+        stage('build') {
+
+            steps{
+
+                script{
+
+                    deploy("nodejsapp","shreyas231","latest")
+
+                }
+
+            }
+
+        }
+
+        stage('test'){
+
+            steps {
+
+                echo 'Here is testiung Part'
+
+            }
+
+        }
+
+        stage('deploy') {
+
+            steps {
+
+                echo 'Here is deploy Part'
+
+            }
+
+        }
+
+    }
+
+}
+
+ 
